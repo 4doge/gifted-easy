@@ -1,0 +1,27 @@
+{
+  "name": "gifted-easy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "export NODE_ENV=prod && node app.js"
+  },
+  "engines": {
+    "node": "7.9.0",
+    "npm": "4.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4doge/gifted-easy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/4doge/gifted-easy/issues"
+  },
+  "homepage": "https://github.com/4doge/gifted-easy#readme",
+  "author": "Boksha Anton",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.3.0",
+    "koa-router": "^7.2.1"
+  }
+}
