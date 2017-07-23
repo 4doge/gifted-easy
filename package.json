@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "export NODE_ENV=prod && node app.js"
+    "start": "export NODE_ENV=prod && node app.js",
+    "test": "mocha --timeout 10000"
   },
   "engines": {
     "node": "7.9.0",
@@ -23,5 +24,10 @@
   "dependencies": {
     "koa": "^2.3.0",
     "koa-router": "^7.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.4.2"
   }
 }
