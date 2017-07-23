@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/4doge/gifted-easy#readme",
   "author": "Boksha Anton",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "koa": "^2.3.0",
     "koa-router": "^7.2.1"
