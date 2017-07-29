@@ -43,3 +43,14 @@ exports.categories = async function(ctx) {
     let categories = await Category.find().skip(page * perPage).limit(perPage);
     ctx.body = {categories: categories};
 };
+
+exports.newCategory = async function(ctx) {
+    let category = new Category({
+        title: ctx.request.body.title
+    });
+    await category.save();
+    ctx.body = {
+        _id: category._id,
+        title: category.title
+    };
+};
