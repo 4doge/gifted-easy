@@ -16,7 +16,7 @@ router.post('/sign-up', adminCtrl.signUp);
 router.get('/categories/:page',
     passport.authenticate('jwt', { session: false }),
     adminCtrl.categories);
-router.post('/categories/new',
+router.post('/categories',
     passport.authenticate('jwt', { session: false }),
     validator({
         body: object().keys({
@@ -24,6 +24,13 @@ router.post('/categories/new',
         })
     }),
     adminCtrl.newCategory);
-
+router.delete('/categories',
+    passport.authenticate('jwt', { session: false }),
+    validator({
+        body: object().keys({
+            id: string().required()
+        })
+    }),
+    adminCtrl.deleteCategory);
 
 module.exports = router;

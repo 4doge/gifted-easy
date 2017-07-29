@@ -40,7 +40,7 @@ exports.signUp = async function (ctx) {
 exports.categories = async function(ctx) {
     const perPage = config.categoriesPerPage;
     const page = ctx.params.page;
-    let categories = await Category.find().skip(page * perPage).limit(perPage);
+    let categories = await Category.find().select('title _id').skip(page * perPage).limit(perPage);
     ctx.body = {categories: categories};
 };
 
@@ -53,4 +53,19 @@ exports.newCategory = async function(ctx) {
         _id: category._id,
         title: category.title
     };
+};
+
+exports.deleteCategory = async function(ctx) {
+    await Category.findById(ctx.request.body.id, function(err, category) {
+        if (err) {
+            ctx.body = {error: err};
+        }
+        if (!category) {
+            ctx.status = 404;
+            ctx.body = {error: 'Category does\'t exist!'};
+        } else {
+            category.remove();
+            ctx.body = {success: true};
+        }
+    });
 };
