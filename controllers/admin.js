@@ -1,6 +1,8 @@
 const passport = require('koa-passport');
+const config = require('config');
 
 const User = require('../models/user');
+const Category = require('../models/category');
 const errorHandler = require('../utils/errorHandler');
 
 
@@ -33,4 +35,11 @@ exports.signUp = async function (ctx) {
         ctx.status = 400;
         ctx.body = errorHandler(e);
     }
+};
+
+exports.categories = async function(ctx) {
+    const perPage = config.categoriesPerPage;
+    const page = ctx.params.page;
+    let categories = await Category.find().skip(page * perPage).limit(perPage);
+    ctx.body = {categories: categories};
 };

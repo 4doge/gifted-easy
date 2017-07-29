@@ -17,5 +17,6 @@ module.exports = {
             iterations: 12000
         },
     },
-    defaultPhotoUrl: 'https://placekitten.com/g/500/500'
+    defaultPhotoUrl: 'https://placekitten.com/g/500/500',
+    categoriesPerPage: 20
 };
