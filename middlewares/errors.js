@@ -2,8 +2,8 @@ module.exports = async function(ctx, next) {
     try {
         await next();
     } catch (e) {
-        ctx.status = 500;
         if (e.name === 'ValidationError') {
+            ctx.status = 500;
             if (e.hasOwnProperty('details')) {
                 ctx.body = {'error': e.details[0].message};
             } else {
@@ -15,8 +15,6 @@ module.exports = async function(ctx, next) {
                 }
                 ctx.body = {errors: errorMessages};
             }
-        } else {
-            ctx.body = {error: '500 error'};
         }
     }
 };

@@ -56,16 +56,14 @@ exports.newCategory = async function(ctx) {
 };
 
 exports.deleteCategory = async function(ctx) {
-    await Category.findById(ctx.request.body.id, function(err, category) {
-        if (err) {
-            ctx.body = {error: err};
-        }
-        if (!category) {
-            ctx.status = 404;
-            ctx.body = {error: 'Category does\'t exist!'};
-        } else {
-            category.remove();
-            ctx.body = {success: true};
-        }
-    });
+    let category = await Category.findById(ctx.request.body.id);
+    await category.remove();
+    ctx.body = {success: true};
+};
+
+exports.putCategory = async function(ctx) {
+    let category = await Category.findById(ctx.request.body.id);
+    category.title = ctx.request.body.title;
+    await category.save();
+    ctx.body = {success: true};
 };

@@ -32,5 +32,15 @@ router.delete('/categories',
         })
     }),
     adminCtrl.deleteCategory);
+router.put('/categories',
+    passport.authenticate('jwt', { session: false }),
+    validator({
+        body: object().keys({
+            id: string().required(),
+            title: string().required()
+        })
+    }),
+    adminCtrl.putCategory);
+
 
 module.exports = router;
