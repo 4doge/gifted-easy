@@ -3,9 +3,9 @@ const Router = require('koa-router');
 const cors = require('kcors');
 const fs = require('fs');
 const path = require('path');
-const passport = require('./libs/passport');
+const passport = require('./app/libs/passport');
 
-require('./libs/mongoose');
+require('./app/libs/mongoose');
 
 const app = new Koa();
 const router = new Router({
@@ -13,16 +13,18 @@ const router = new Router({
 });
 
 
-const middlewares = fs.readdirSync(path.join(__dirname, 'middlewares')).sort();
+const middlewares = fs.readdirSync(path.join(__dirname, 'app/middlewares')).sort();
 
 app.use(cors());
 app.use(passport.initialize());
 
 middlewares.forEach(function(middleware) {
-    app.use(require('./middlewares/' + middleware));
+    app.use(require('./app/middlewares/' + middleware));
 });
 
-router.use('/admin', require('./routes/admin').routes());
+
+router.use('/accounts', require('./app/accounts/routes').routes());
+router.use('/categories', require('./app/categories/routes').routes());
 
 app.use(router.routes());
 

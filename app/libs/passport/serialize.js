@@ -1,6 +1,6 @@
 const passport = require('koa-passport');
 
-const User = require('../../models/user');
+const User = require('../../accounts/models');
 
 
 passport.serializeUser(function(user, done) {

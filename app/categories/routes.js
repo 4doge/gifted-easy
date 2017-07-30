@@ -6,33 +6,31 @@ const {
     string
 } = require('koa-context-validator');
 
-const adminCtrl = require('../controllers/admin');
+const categoryCtrl = require('./controller');
 
 
 const router = new Router();
 
-router.post('/auth', adminCtrl.auth);
-router.post('/sign-up', adminCtrl.signUp);
-router.get('/categories/:page',
+router.get('/:page',
     passport.authenticate('jwt', { session: false }),
-    adminCtrl.categories);
-router.post('/categories',
+    categoryCtrl.categories);
+router.post('/',
     passport.authenticate('jwt', { session: false }),
     validator({
         body: object().keys({
             title: string().required()
         })
     }),
-    adminCtrl.newCategory);
-router.delete('/categories',
+    categoryCtrl.newCategory);
+router.delete('/',
     passport.authenticate('jwt', { session: false }),
     validator({
         body: object().keys({
             id: string().required()
         })
     }),
-    adminCtrl.deleteCategory);
-router.put('/categories',
+    categoryCtrl.deleteCategory);
+router.put('/',
     passport.authenticate('jwt', { session: false }),
     validator({
         body: object().keys({
@@ -40,7 +38,7 @@ router.put('/categories',
             title: string().required()
         })
     }),
-    adminCtrl.putCategory);
+    categoryCtrl.putCategory);
 
 
 module.exports = router;
