@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "export NODE_ENV=prod && node app.js",
-    "test": "mocha app/test --timeout 10000"
+    "test": "mocha app/test --timeout 10000",
+    "docs": "apidoc -i documentation/specs -o documentation/docs"
   },
   "engines": {
     "node": "7.9.0",
@@ -31,6 +32,7 @@
     "koa-logger": "^3.0.1",
     "koa-passport": "^3.0.0",
     "koa-router": "^7.2.1",
+    "koa-static": "^4.0.1",
     "mongoose": "4.10.5",
     "mongoose-beautiful-unique-validation": "^6.0.0",
     "passport-jwt": "^2.2.1",

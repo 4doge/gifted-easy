@@ -1,0 +1,1 @@
+define({  "name": "Gifted Easy API Docs",  "version": "1.0.0",  "description": "API cheatsheet",  "sampleUrl": false,  "defaultVersion": "0.0.0",  "apidoc": "0.3.0",  "generator": {    "name": "apidoc",    "time": "2017-07-30T16:42:57.698Z",    "url": "http://apidocjs.com",    "version": "0.17.6"  }});

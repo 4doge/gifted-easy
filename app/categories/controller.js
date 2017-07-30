@@ -16,8 +16,10 @@ exports.newCategory = async function(ctx) {
     });
     await category.save();
     ctx.body = {
-        _id: category._id,
-        title: category.title
+        category: {
+            _id: category._id,
+            title: category.title
+        }
     };
 };
 
