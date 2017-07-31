@@ -1,6 +1,6 @@
 module.exports = {
     mongoose: {
-        uri: 'mongodb://heroku_vzc2zgpt:l7k6mt82mo3d831cets0hdugee@ds125113.mlab.com:25113/heroku_vzc2zgpt',
+        uri: process.env.MONGODB_URI,
         options: {
             server: {
                 socketOptions: {
@@ -10,7 +10,7 @@ module.exports = {
             }
         }
     },
-    jwtsecret: 'FN9uTqglv72m33mS',
+    jwtsecret: process.env.JWTSECRET,
     crypto: {
         hash: {
             length: 128,

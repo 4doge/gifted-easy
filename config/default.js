@@ -10,7 +10,7 @@ module.exports = {
             }
         }
     },
-    jwtsecret: 'hello',
+    jwtsecret: 'FN9uTqglv72m33mS',
     crypto: {
         hash: {
             length: 128,
