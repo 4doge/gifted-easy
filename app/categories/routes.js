@@ -6,7 +6,7 @@ const {
     string
 } = require('koa-context-validator');
 
-const categoryCtrl = require('./controller');
+const categoryCtrl = require('./controllers');
 
 
 const router = new Router();

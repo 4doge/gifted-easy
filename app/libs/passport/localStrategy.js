@@ -1,6 +1,6 @@
 let LocalStrategy = require('passport-local');
 
-let User = require('../../accounts/models');
+let User = require('../../accounts/models/user');
 
 
 let opts = {

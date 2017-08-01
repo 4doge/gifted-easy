@@ -1,7 +1,6 @@
 const passport = require('koa-passport');
 
-const User = require('./models');
-const errorHandler = require('../utils/errorHandler');
+const User = require('./models/user');
 
 
 exports.auth = async function (ctx, next) {
@@ -20,17 +19,12 @@ exports.auth = async function (ctx, next) {
 };
 
 exports.signUp = async function (ctx) {
-    try {
-        let user = new User ({
-            fullName: ctx.request.body.fullName,
-            email: ctx.request.body.email,
-            password: ctx.request.body.password,
-            isAdmin: true
-        });
-        await user.save();
-        ctx.body = user.getAuthData();
-    } catch(e) {
-        ctx.status = 400;
-        ctx.body = errorHandler(e);
-    }
+    let user = new User ({
+        fullName: ctx.request.body.fields.fullName,
+        email: ctx.request.body.fields.email,
+        password: ctx.request.body.fields.password,
+        isAdmin: true
+    });
+    await user.save();
+    ctx.body = user.getAuthData();
 };

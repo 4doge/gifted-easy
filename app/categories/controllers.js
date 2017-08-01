@@ -1,6 +1,6 @@
 const config = require('config');
 
-const Category = require('./models');
+const Category = require('./models/category');
 
 
 exports.categories = async function(ctx) {
@@ -12,7 +12,7 @@ exports.categories = async function(ctx) {
 
 exports.newCategory = async function(ctx) {
     let category = new Category({
-        title: ctx.request.body.title
+        title: ctx.request.body.fields.title
     });
     await category.save();
     ctx.body = {
@@ -24,14 +24,14 @@ exports.newCategory = async function(ctx) {
 };
 
 exports.deleteCategory = async function(ctx) {
-    let category = await Category.findById(ctx.request.body.id);
+    let category = await Category.findById(ctx.request.body.fields.id);
     await category.remove();
     ctx.body = {success: true};
 };
 
 exports.putCategory = async function(ctx) {
-    let category = await Category.findById(ctx.request.body.id);
-    category.title = ctx.request.body.title;
+    let category = await Category.findById(ctx.request.body.fields.id);
+    category.title = ctx.request.body.fields.title;
     await category.save();
     ctx.body = {success: true};
 };

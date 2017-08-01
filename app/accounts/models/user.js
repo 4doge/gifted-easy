@@ -100,4 +100,5 @@ userSchema.methods.getAuthData = function () {
 
 userSchema.plugin(beautifyUnique);
 
+
 module.exports = mongoose.model('User', userSchema);

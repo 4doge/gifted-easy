@@ -24,5 +24,6 @@ module.exports = {
         productsFolder: 'products'
     },
     defaultPhotoUrl: 'https://placekitten.com/g/500/500',
-    categoriesPerPage: 20
+    categoriesPerPage: 20,
+    availableCurrencies: ['₴', '₽', '$', '€', '£']
 };
