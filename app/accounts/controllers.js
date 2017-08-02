@@ -20,9 +20,9 @@ exports.auth = async function (ctx, next) {
 
 exports.signUp = async function (ctx) {
     let user = new User ({
-        fullName: ctx.request.body.fields.fullName,
-        email: ctx.request.body.fields.email,
-        password: ctx.request.body.fields.password,
+        fullName: ctx.request.body.fullName,
+        email: ctx.request.body.email,
+        password: ctx.request.body.password,
         isAdmin: true
     });
     await user.save();
