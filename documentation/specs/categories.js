@@ -12,6 +12,8 @@
  *
  * @apiUse SingleErrorOrErrorsList
  *
+ * @apiUse JWTHeader
+ *
  * @apiSuccess {Object[]} categories Array of categories
  * @apiSuccess {String} categories._id Category identifier
  * @apiSuccess {String} categories.title Category title
@@ -25,6 +27,8 @@
  * @apiVersion 1.0.0
  *
  * @apiParam {String} title Category title
+ *
+ * @apiUse JWTHeader
  *
  * @apiUse SingleErrorOrErrorsList
  *
@@ -42,7 +46,10 @@
  *
  * @apiParam {String} _id Category identifier
  *
+ * @apiUse JWTHeader
+ *
  * @apiUse SingleErrorOrErrorsList
+ *
  * @apiUse SuccessAction
  */
 
@@ -56,7 +63,10 @@
  * @apiParam {String} _id Category identifier
  * @apiParam {String} title Category title
  *
+ * @apiUse JWTHeader
+ *
  * @apiUse SingleErrorOrErrorsList
+ *
  * @apiUse SuccessAction
  */
 
