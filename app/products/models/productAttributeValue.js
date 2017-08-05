@@ -3,6 +3,7 @@ const beautifyUnique = require('mongoose-beautiful-unique-validation');
 
 
 const productAttributeValueSchema = new mongoose.Schema({
+    // TODO: add product ref to schema
     attribute: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'ProductAttribute',
