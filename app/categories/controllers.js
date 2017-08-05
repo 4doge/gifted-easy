@@ -1,12 +1,8 @@
-const config = require('config');
-
 const Category = require('./models/category');
 
 
 exports.categories = async function(ctx) {
-    const perPage = config.categoriesPerPage;
-    const page = ctx.params.page;
-    let categories = await Category.find().select('title _id').skip(page * perPage).limit(perPage);
+    let categories = await Category.find().select('title _id');
     ctx.body = {categories: categories};
 };
 

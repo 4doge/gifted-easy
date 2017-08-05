@@ -4,7 +4,7 @@ module.exports = {
         options: {
             server: {
                 socketOptions: {
-                    keepAlive: 1,
+                    keepAlive: 1
                 },
                 poolSize: 5
             }
@@ -15,7 +15,7 @@ module.exports = {
         hash: {
             length: 128,
             iterations: 12000
-        },
+        }
     },
     aws: {
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,

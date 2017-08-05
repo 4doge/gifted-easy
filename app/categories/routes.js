@@ -11,7 +11,7 @@ const categoryCtrl = require('./controllers');
 
 const router = new Router();
 
-router.get('/:page',
+router.get('/',
     passport.authenticate('jwt', { session: false }),
     categoryCtrl.categories);
 router.post('/',

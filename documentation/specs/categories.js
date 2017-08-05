@@ -3,16 +3,14 @@
 // ------------------------------------------------------------------------------------------
 
 /**
- * @api {get} api/categories/:page Get categories
+ * @api {get} api/categories Get categories
  * @apiName GetCategories
  * @apiGroup Categories
  * @apiVersion 1.0.0
  *
- * @apiParam {Number} page Page number(starting from <code>0</code>)
+ * @apiUse JWTHeader
  *
  * @apiUse SingleErrorOrErrorsList
- *
- * @apiUse JWTHeader
  *
  * @apiSuccess {Object[]} categories Array of categories
  * @apiSuccess {String} categories._id Category identifier
