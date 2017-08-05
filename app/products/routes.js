@@ -7,7 +7,9 @@ const productCtrl = require('./controllers');
 const router = new Router();
 
 // TODO: finish creating new product method
-router.post('/', productCtrl.newProduct);
+router.post('/',
+    passport.authenticate('jwt', { session: false }),
+    productCtrl.newProduct);
 router.get('/attributes/:category',
     passport.authenticate('jwt', { session: false }),
     productCtrl.attributes);
