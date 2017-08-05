@@ -47,13 +47,9 @@ exports.newProduct = async function (ctx) {
 exports.attributes = async function (ctx) {
     let attrs = await ProductAttribute.find({
         category: ctx.params.category
-    }).select('attribute');
+    }).select('attribute').populate({
+        path: 'values',
+        select: 'value'
+    });
     ctx.body = {attributes: attrs};
-};
-
-exports.attributeValues = async function(ctx) {
-    let values = await ProductAttributeValue.find({
-        attribute: ctx.params.attribute
-    }).select('value');
-    ctx.body = {values: values};
 };

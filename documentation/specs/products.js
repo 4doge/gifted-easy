@@ -17,22 +17,9 @@
  * @apiSuccess {Object[]} attributes Array of attribute objects
  * @apiSuccess {String} attributes._id Attribute identifier
  * @apiSuccess {String} attributes.attribute Attribute name
- */
-
-
-/**
- * @api {get} api/products/attribute-values/:attribute Get all attribute values by attribute
- * @apiName AttributeValuesByAttribute
- * @apiGroup Products
- * @apiVersion 1.0.0
- *
- * @apiParam {String} attribute Attribute identifier
- *
- * @apiUse JWTHeader
- *
- * @apiUse SingleErrorOrErrorsList
- *
- * @apiSuccess {Object[]} values Array of attribute values
- * @apiSuccess {String} values._id Attribute value identifier
- * @apiSuccess {String} values.value Attribute value value
+ * @apiSuccess {String} attributes.id Attribute identifier (need for reference)
+ * @apiSuccess {Object[]} attributes.values Array of attribute values
+ * @apiSuccess {String} attributes.values._id Attribute value identifier
+ * @apiSuccess {String} attributes.values.attribute Attribute identifier (need for reference)
+ * @apiSuccess {String} attributes.values.value Attribute value
  */

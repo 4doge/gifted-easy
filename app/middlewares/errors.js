@@ -2,6 +2,7 @@ module.exports = async function(ctx, next) {
     try {
         await next();
     } catch (e) {
+        console.log(e);
         if (e.name === 'ValidationError') {
             ctx.status = 500;
             if (e.hasOwnProperty('details')) {

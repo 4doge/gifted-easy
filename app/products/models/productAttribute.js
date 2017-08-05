@@ -15,6 +15,15 @@ const productAttributeSchema = new mongoose.Schema({
     }
 });
 
+productAttributeSchema.virtual('values', {
+    ref: 'ProductAttributeValue',
+    localField: '_id',
+    foreignField: 'attribute',
+});
+
+productAttributeSchema.set('toObject', { virtuals: true });
+productAttributeSchema.set('toJSON', { virtuals: true });
+
 productAttributeSchema.plugin(beautifyUnique);
 
 

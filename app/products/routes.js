@@ -11,9 +11,6 @@ router.post('/', productCtrl.newProduct);
 router.get('/attributes/:category',
     passport.authenticate('jwt', { session: false }),
     productCtrl.attributes);
-router.get('/attribute-values/:attribute',
-    passport.authenticate('jwt', { session: false }),
-    productCtrl.attributeValues);
 
 
 module.exports = router;
