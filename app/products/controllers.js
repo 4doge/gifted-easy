@@ -3,6 +3,7 @@ const config = require('config');
 const Product = require('./models/product');
 const ProductPhoto = require('./models/productPhoto');
 const ProductAttribute = require('./models/productAttribute');
+const ProductAttributeValue = require('./models/productAttributeValue');
 const uploadS3 = require('../utils/uploadS3');
 
 
