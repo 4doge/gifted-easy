@@ -16,7 +16,7 @@ const router = new Router({
 
 const middlewares = fs.readdirSync(path.join(__dirname, 'app/middlewares')).sort();
 
-app.use(serve('documentation/docs'));
+app.use(serve('docs'));
 app.use(cors());
 app.use(passport.initialize());
 

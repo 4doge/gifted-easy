@@ -1,0 +1,10 @@
+properties:
+  token:
+    type: string
+  user:
+    type: object
+    properties:
+      fullName:
+        type: string
+      photo:
+          type: string

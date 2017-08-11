@@ -6,7 +6,6 @@
   "scripts": {
     "start": "export NODE_ENV=prod && node app.js",
     "test": "mocha app/test --timeout 10000",
-    "docs": "apidoc -i documentation/specs -o documentation/docs",
     "fixtures": "node app/fixtures/load.js"
   },
   "engines": {

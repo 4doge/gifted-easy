@@ -1,0 +1,183 @@
+swagger: "3.0"
+info:
+  title: Gifted Easy API docs
+  description: Made with ❤️
+  version: "1.0.0"
+host: gifted-easy-api.herokuapp.com
+schemes:
+  - https
+basePath: /api
+securityDefinitions:
+  apiKey:
+    type: apiKey
+    name: Authorization
+    in: header
+produces:
+  - application/json
+
+# PATHS
+paths:
+# CATEGORIES
+  /categories:
+    get:
+      summary: Get all product categories
+      description: Returns array of all product categories
+      security:
+        - apiKey: []
+      tags:
+        - Categories
+      responses:
+        "200":
+          description: An array of categories
+          schema:
+            type: object
+            properties:
+              categories:
+                type: array
+                items:
+                  $ref: '#/definitions/Category'
+        default:
+          $ref: '#/definitions/Error'
+    post:
+      summary: Create a new category
+      descrition: Add a new product category
+      security:
+        - apiKey: []
+      tags:
+        - Categories
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+      responses:
+        "200":
+          description: An category object
+          schema:
+            type: object
+            properties:
+              category:
+                $ref: 'models/category.yml'
+        default:
+          $ref: '#/definitions/Error'
+    delete:
+      summary: Delete category
+      description: Fully remove category
+      security:
+        - apiKey: []
+      tags:
+        - Categories
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+      responses:
+        "200":
+          description: Success flag
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                value: true
+        default:
+          $ref: '#/definitions/Error'
+    put:
+      summary: Update category
+      description: Update category title
+      security:
+        - apiKey: []
+      tags:
+        - Categories
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+      responses:
+        "200":
+          description: Success flag
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                value: true
+        default:
+          $ref: '#/definitions/Error'
+
+# ACCOUNTS
+  /accounts/auth:
+    post:
+      summary: User authentication
+      description: Authenticate user and return JWT token with user fields
+      security:
+        - apiKey: []
+      tags:
+        - Accounts
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+              password:
+                type: string
+      responses:
+        "200":
+          $ref: '#/definitions/AuthUser'
+        default:
+          $ref: '#/definitions/Error'
+  /accounts/sign-up:
+    post:
+      summary: User sign up
+      description: Create new user in the database
+      security:
+        - apiKey: []
+      tags:
+        - Accounts
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              fullName:
+                type: string
+              email:
+                type: string
+              password:
+                type: string
+      responses:
+        "200":
+          $ref: '#/definitions/AuthUser'
+        default:
+          $ref: '#/definitions/Error'
+
+# MODELS DEFINITION
+definitions:
+  Category:
+    $ref: 'models/category.yml'
+  Error:
+    $ref: 'models/err.yml'
+  AuthUser:
+    $ref: 'models/authUser.yml'
