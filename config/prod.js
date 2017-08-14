@@ -2,12 +2,9 @@ module.exports = {
     mongoose: {
         uri: process.env.MONGODB_URI,
         options: {
-            server: {
-                socketOptions: {
-                    keepAlive: 1
-                },
-                poolSize: 5
-            }
+            keepAlive: 1,
+            poolSize: 5,
+            useMongoClient: true,
         }
     },
     jwtsecret: process.env.JWTSECRET,
