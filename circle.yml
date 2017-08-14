@@ -1,8 +1,11 @@
 machine:
   node:
     version: 8.2.1
+  services:
+    - docker
+
 deployment:
   prod:
     branch: master
-    heroku:
-      appname: gifted-easy-api
+    commands:
+      -
