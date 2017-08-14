@@ -13,6 +13,7 @@ exports.newProduct = async function (ctx) {
         description: ctx.request.body.fields.description,
         price: ctx.request.body.fields.price,
         category: ctx.request.body.fields.category,
+        brand: ctx.request.body.fields.brand,
         currency: ctx.request.body.fields.currency
     });
     await product.save();

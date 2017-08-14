@@ -27,6 +27,7 @@ middlewares.forEach(function(middleware) {
 
 router.use('/accounts', require('./app/accounts/routes').routes());
 router.use('/categories', require('./app/categories/routes').routes());
+router.use('/brands', require('./app/brands/routes').routes());
 router.use('/products', require('./app/products/routes').routes());
 
 app.use(router.routes());

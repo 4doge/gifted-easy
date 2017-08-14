@@ -1,5 +1,28 @@
 const id = require('pow-mongodb-fixtures').createObjectId;
 
+let brands = exports.brands = {
+    brand1: {
+        _id: id(),
+        title: 'Apple'
+    },
+    brand2: {
+        _id: id(),
+        title: 'Google'
+    },
+    brand3: {
+        _id: id(),
+        title: 'Samsung'
+    },
+    brand4: {
+        _id: id(),
+        title: 'HTC'
+    },
+    brand5: {
+        _id: id(),
+        title: 'LG'
+    }
+};
+
 let categories = exports.categories = {
     category1: {
         _id: id(),

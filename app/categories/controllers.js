@@ -2,7 +2,7 @@ const Category = require('./models/category');
 
 
 exports.categories = async function(ctx) {
-    let categories = await Category.find().select('title _id');
+    let categories = await Category.find().select('title');
     ctx.body = {categories: categories};
 };
 

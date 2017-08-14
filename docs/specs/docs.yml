@@ -3,9 +3,11 @@ info:
   title: Gifted Easy API docs
   description: Made with ❤️
   version: "1.0.0"
-host: gifted-easy-api.herokuapp.com
+#host: gifted-easy-api.herokuapp.com
+host: localhost:3000
 schemes:
-  - https
+  - http
+#  - https
 basePath: /api
 securityDefinitions:
   apiKey:
@@ -17,6 +19,7 @@ produces:
 
 # PATHS
 paths:
+
 # CATEGORIES
   /categories:
     get:
@@ -121,6 +124,28 @@ paths:
         default:
           $ref: '#/definitions/Error'
 
+# BRANDS
+  /brands:
+    get:
+      summary: Get all product brands
+      description: Returns array of all product brands
+      security:
+        - apiKey: []
+      tags:
+        - Brands
+      responses:
+        "200":
+          description: An array of brands
+          schema:
+            type: object
+            properties:
+              brands:
+                type: array
+                items:
+                  $ref: '#/definitions/Brand'
+        default:
+          $ref: '#/definitions/Error'
+
 # ACCOUNTS
   /accounts/auth:
     post:
@@ -177,7 +202,9 @@ paths:
 definitions:
   Category:
     $ref: 'models/category.yml'
-  Error:
-    $ref: 'models/err.yml'
+  Brand:
+    $ref: 'models/brand.yml'
   AuthUser:
     $ref: 'models/authUser.yml'
+  Error:
+    $ref: 'models/err.yml'
