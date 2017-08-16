@@ -8,6 +8,7 @@ ADD . /app
 
 # Install requirements
 RUN /bin/bash /opt/requirements.sh
+RUN cd /app/ && npm install
 
 
 # Nginx config
