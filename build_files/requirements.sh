@@ -1,4 +1,3 @@
 #!/bin/bash
 
-apt-get install nginx
-
+apt-get update && apt-get install nginx
