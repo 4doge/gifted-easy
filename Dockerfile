@@ -11,5 +11,14 @@ RUN npm install
 # Bundle app source
 COPY . /usr/src/app
 
+# Install requirements
+RUN /bin/bash build_files/requirements.sh
+
+
+# Nginx config
+COPY build_files/gifted_nginx.conf /etc/nginx/sites-available/gifted_nginx.conf
+RUN ln -s /etc/nginx/sites-available/gifted_nginx.conf /etc/nginx/sites-enabled
+
+
 EXPOSE 80
 CMD [ "npm", "start" ]
