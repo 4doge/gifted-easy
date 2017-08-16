@@ -8,7 +8,7 @@ ADD . /app
 
 # Install requirements
 RUN /bin/bash /opt/requirements.sh
-RUN npm install
+RUN cd /app && npm install
 
 # Nginx config
 ADD ./docker/etc/gifted_nginx.conf /etc/nginx/sites-available/gifted_nginx.conf
