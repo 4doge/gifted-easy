@@ -1,24 +1,24 @@
 FROM node:8.2.1
 
-# Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+# Add a docker folders
+ADD ./docker /
 
-# Install app dependencies
-COPY package.json /usr/src/app/
-RUN npm install
-
-# Bundle app source
-COPY . /usr/src/app
+# Add app directory
+ADD . /app
 
 # Install requirements
-RUN /bin/bash build_files/requirements.sh
-
+RUN /bin/bash /opt/requirements.sh
+RUN npm install
 
 # Nginx config
-COPY build_files/gifted_nginx.conf /etc/nginx/sites-available/gifted_nginx.conf
+ADD ./docker/etc/gifted_nginx.conf /etc/nginx/sites-available/gifted_nginx.conf
 RUN ln -s /etc/nginx/sites-available/gifted_nginx.conf /etc/nginx/sites-enabled
 
+# App folder permissions
+RUN chmod -R 777 /app
 
+# Container port
 EXPOSE 80
+
+# Start app
 CMD [ "npm", "start" ]
