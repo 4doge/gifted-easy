@@ -14,6 +14,7 @@ RUN /bin/bash /opt/requirements.sh
 
 COPY ./docker/etc/gifted_nginx.conf /etc/nginx/sites-available/gifted_nginx.conf
 RUN ln -s /etc/nginx/sites-available/gifted_nginx.conf /etc/nginx/sites-enabled
+RUN /etc/init.d/nginx start
 
 RUN chmod -R 777 /project
 
