@@ -12,10 +12,10 @@ COPY . /project
 
 RUN /bin/bash /opt/requirements.sh
 
+RUN rm /etc/nginx/sites-available/default && rm /etc/nginx/sites-enabled/default
 COPY ./docker/etc/gifted_nginx.conf /etc/nginx/sites-available/gifted_nginx.conf
 RUN ln -s /etc/nginx/sites-available/gifted_nginx.conf /etc/nginx/sites-enabled
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-RUN /etc/init.d/nginx restart
+RUN /etc/init.d/nginx start
 
 RUN chmod -R 777 /project
 
