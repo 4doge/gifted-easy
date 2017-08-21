@@ -6,7 +6,7 @@ const User = require('../../accounts/models/user');
 
 
 let opts = {
-    jwtFromRequest: ExtractJwt.fromAuthHeader(),
+    jwtFromRequest: ExtractJwt.fromHeader('Authorization'),
     secretOrKey: config.jwtsecret,
 };
 
