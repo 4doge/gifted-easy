@@ -3,11 +3,9 @@ info:
   title: Gifted Easy API docs
   description: Made with ❤️
   version: "1.0.0"
-#host: gifted-easy-api.herokuapp.com
-host: localhost:3000
+host: 35.158.33.186
 schemes:
   - http
-#  - https
 basePath: /api
 securityDefinitions:
   apiKey:
