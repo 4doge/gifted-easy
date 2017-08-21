@@ -5,7 +5,7 @@ nginx-proxy:
   roles:
     - global
   volumes:
-    - /var/run/docker.sock:/tmp/docker.sock:ro
+    - /var/run/docker.sock:/var/run/docker.sock:ro
     - /certs:/etc/nginx/certs
     - /etc/nginx/vhost.d
     - /usr/share/nginx/html
