@@ -4,6 +4,11 @@ nginx-proxy:
     - "3000:80"
   roles:
     - global
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+    - /certs:/etc/nginx/certs
+    - /etc/nginx/vhost.d
+    - /usr/share/nginx/html
 
 api:
   image: giftedeasy/gifted:latest
