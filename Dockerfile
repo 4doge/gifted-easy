@@ -12,11 +12,6 @@ COPY . /project
 
 RUN /bin/bash /opt/requirements.sh
 
-RUN rm /etc/nginx/sites-available/default && rm /etc/nginx/sites-enabled/default
-COPY ./docker/etc/gifted_nginx.conf /etc/nginx/sites-available/gifted_nginx.conf
-RUN ln -s /etc/nginx/sites-available/gifted_nginx.conf /etc/nginx/sites-enabled
-RUN /etc/init.d/nginx start
-
 RUN chmod -R 777 /project
 
 EXPOSE 80

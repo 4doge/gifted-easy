@@ -1,0 +1,11 @@
+nginx-proxy:
+  image: jwilder/nginx-proxy:latest
+  ports:
+    - "3000:80"
+  roles:
+    - global
+
+api:
+  image: giftedeasy/gifted:latest
+  links:
+    - nginx-proxy
