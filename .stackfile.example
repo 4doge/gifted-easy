@@ -1,0 +1,19 @@
+lb:
+  environment:
+    - 'VIRTUAL_HOST=http://xx.xx.xx.xx'
+  image: 'dockercloud/haproxy:latest'
+  links:
+    - web
+  ports:
+    - '80:80'
+  roles:
+    - global
+web:
+  autoredeploy: true
+  environment:
+    - AWS_ACCESS_KEY_ID=xxx
+    - AWS_SECRET_ACCESS_KEY=xxx
+    - JWTSECRET=xxx
+    - 'MONGODB_URI=xxx'
+    - PORT=80
+  image: 'giftedeasy/gifted:latest'
