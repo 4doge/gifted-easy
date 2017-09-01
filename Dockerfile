@@ -2,8 +2,6 @@ FROM node:8.2.1
 
 LABEL maintainer="antonboksha@gmail.com"
 
-COPY ./docker /
-
 RUN mkdir -p /project
 WORKDIR /project
 
