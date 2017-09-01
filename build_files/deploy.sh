@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# TODO: grab config file from AWS S3 and replace the real credentials
+docker login -e $DOCKER_CLOUD_EMAIL -u $DOCKER_CLOUD_USERNAME -p $DOCKER_CLOUD_PASSWORD
+docker build -t giftedeasy/gifted .
+docker push giftedeasy/gifted
 
-chmod +x build_files/docker.sh
-./build_files/docker.sh

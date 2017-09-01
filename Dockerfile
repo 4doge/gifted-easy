@@ -1,5 +1,7 @@
 FROM node:8.2.1
 
+LABEL maintainer="antonboksha@gmail.com"
+
 COPY ./docker /
 
 RUN mkdir -p /project
@@ -10,7 +12,7 @@ RUN npm install
 
 COPY . /project
 
-RUN /bin/bash /opt/requirements.sh
+RUN /bin/bash /project/build_files/requirements.sh
 
 RUN chmod -R 777 /project
 
